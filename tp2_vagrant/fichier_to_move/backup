@@ -1,0 +1,2 @@
+00 * * * * sudo sh /srv/tp1_backup.sh /srv/site1
+00 * * * * sudo sh /srv/tp1_backup.sh /srv/site2

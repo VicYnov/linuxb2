@@ -1,0 +1,13 @@
+[Unit]
+Description= Lance un serveur web et ouvre les ports appropriés
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/sudo iptables -A INPUT -p tcp -i eth1 --dport 50 -j ACCEPT
+ExecStart=/usr/bin/sudo python2 -m SimpleHTTPServer 50
+ExecStopPost=/usr/bin/sudo iptables -D INPUT -p tcp -i eth1 --dport 50 -j ACCEPT
+User=tp3
+Group=tp3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description= Lance une sauvegarde de site1 et site2
+
+[Service]
+PIDFile=/var/run/backup_tp3.pid
+ExecStartPre=/usr/bin/sh /srv/verifs.sh
+ExecStart=/usr/bin/sh /srv/sauvegarde.sh
+ExecStopPost=/usr/bin/sh /srv/compteur.sh
+User=backup
+
+[Install]
+WantedBy=multi-user.target

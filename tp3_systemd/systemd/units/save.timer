@@ -1,0 +1,11 @@
+[Unit]
+Description=sauvegarde horaire
+Requires=save.service
+
+[Timer]
+
+Unit=save.service
+OnCalendar=0/1:00:00
+
+[Install]
+WantedBy=timers.target
